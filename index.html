@@ -102,6 +102,11 @@
         calculate();
       }
     });
+
+    //入力後タップしたらクリア
+    document.getElementById("inputNumber").addEventListener("focus", function() {
+  this.value = "";
+});
   </script>
 
 </body>
