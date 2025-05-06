@@ -18,7 +18,7 @@ html, body {
   text-align: center;
 }
 
-/* 高さを割合で指定！ */
+/* 高さを割合で指定 */
 .header {
   flex: 0 0 16%;
   flex-direction: column;
@@ -42,7 +42,7 @@ html, body {
   flex-direction: column;
   align-items: center; /* 入力とボタンを中央に揃える */
   gap: 10px; /* 入力とボタンの間にスペース */
-  margin-bottom: 95px; /* ← この高さ分、ボタンに隠れないようにする！ */
+  margin-bottom: 95px; /*  この高さ分、ボタンに隠れないようにする  */
 }
 
 .footer {
