@@ -113,6 +113,13 @@
     setTimeout(() => {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }, 300);
+
+        
+// 念押しでもう一回（キーボード閉じた後っぽいタイミング
+setTimeout(() => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}, 800);
+        
       } else {
         alert("ちゃんと数字を入れてね！");
       }
