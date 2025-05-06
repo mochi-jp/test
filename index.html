@@ -1,4 +1,62 @@
-<input 
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>還元種計算機</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    input[type="number"] {
+      width: 200px;
+      font-size: 20px;
+      padding: 10px;
+      margin: 15px 0;
+      border-radius: 8px;
+      text-align: right;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      font-size: 20px;
+      padding: 10px 25px;
+      border: none;
+      background-color: #ffcc66;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+
+    #result-area {
+      margin-top: 40px;
+    }
+
+    table {
+      border-collapse: collapse;
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px 20px;
+      text-align: right;
+      min-width: 70px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>還元種計算機</h1>
+
+  <input 
     type="number" 
     id="inputNumber" 
     placeholder="点数"
@@ -8,7 +66,7 @@
   >
   <button onclick="calculate()">計算する！</button>
 
-  <div id="result-area" style="margin-top: 400px;">
+  <div id="result-area">
     <table id="resultTable" style="display:none;">
       <tr>
         <th>300</th>
@@ -38,12 +96,12 @@
       }
     }
 
-  //Enterキーで計算できるように
     document.getElementById("inputNumber").addEventListener("keydown", function(e) {
-  if (e.key === "Enter") {
-    calculate();
-  } 
-});
+      if (e.key === "Enter") {
+        calculate();
+      }
+    });
   </script>
+
 </body>
 </html>
