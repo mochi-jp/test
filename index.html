@@ -104,38 +104,50 @@
         document.getElementById("result320").textContent = Math.floor(num / 320);
         document.getElementById("resultTable").style.display = "table";
 
-        input.addEventListener("change", function () {
-  calculate();
-});
-        input.blur(); // ← キーボード閉じる（最優先！）
+         const input = document.getElementById("inputNumber");
 
-         // 少し遅らせてからスクロール（滑らかに）
-    setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }, 300);
-
-        
-// 念押しでもう一回（キーボード閉じた後っぽいタイミング
-setTimeout(() => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-}, 800);
-        
-      } else {
-        alert("ちゃんと数字を入れてね！");
-      }
+  // 入力欄：Enterキーで計算
+  input.addEventListener("keydown", function(e) {
+    if (e.key === "Enter") {
+      calculate();
     }
+  });
 
-    document.getElementById("inputNumber").addEventListener("keydown", function(e) {
-      if (e.key === "Enter") {
-        calculate();
-      }
-    });
+  // 入力欄：確定（change）でも計算
+  input.addEventListener("change", function () {
+    calculate();
+  });
 
-    //入力後タップしたらクリア
-    document.getElementById("inputNumber").addEventListener("focus", function() {
-  this.value = "";
-});
-  </script>
+  // 入力欄：タップしたらクリア
+  input.addEventListener("focus", function() {
+    this.value = "";
+  });
 
-</body>
-</html>
+  function calculate() {
+    const num = parseFloat(input.value);
+
+    if (!isNaN(num)) {
+      document.getElementById("result300").textContent = Math.floor(num / 300);
+      document.getElementById("result310").textContent = Math.floor(num / 310);
+      document.getElementById("result320").textContent = Math.floor(num / 320);
+      document.getElementById("resultTable").style.display = "table";
+
+      // キーボードを閉じる
+      input.blur();
+
+      // 少し遅らせてからスクロール（1回目）
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }, 300);
+
+      // 念押しで2回目スクロール
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }, 800);
+    } else {
+      alert("ちゃんと数字を入れてね！");
+    }
+  }
+</script>
+        
+       
