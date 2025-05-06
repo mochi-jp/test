@@ -68,3 +68,16 @@ th, td {
   margin-bottom: 20px;
 }
 
+#main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#main input,
+#main button {
+  margin: 10px 0;
+}
+
+
+
