@@ -103,7 +103,10 @@
         document.getElementById("result310").textContent = Math.floor(num / 310);
         document.getElementById("result320").textContent = Math.floor(num / 320);
         document.getElementById("resultTable").style.display = "table";
- 
+
+        input.addEventListener("change", function () {
+  calculate();
+});
         input.blur(); // ← キーボード閉じる（最優先！）
 
          // 少し遅らせてからスクロール（滑らかに）
