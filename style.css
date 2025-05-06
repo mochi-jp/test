@@ -30,7 +30,7 @@ html, body {
 }
 
 .footer {
-  flex: 0 0 7%;
+  flex: 0 0 20%;
   font-size: 0.8rem;
   color: #666;
 }
