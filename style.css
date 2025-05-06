@@ -52,6 +52,7 @@ button {
   background-color: #ffcc66;
   border-radius: 12px;
   cursor: pointer;
+  width: 80%;
 }
 
 table {
