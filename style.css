@@ -25,12 +25,12 @@ html, body {
 }
 
 .main {
-  flex: 1 0 60%;
+  flex: 1 0 70%;
   flex-direction: column;
 }
 
 .footer {
-  flex: 0 0 20%;
+  flex: 0 0 10%;
   font-size: 0.8rem;
   color: #666;
 }
