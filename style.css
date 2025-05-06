@@ -50,3 +50,10 @@ th, td {
   text-align: right;
   min-width: 70px;
 }
+
+#input-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
