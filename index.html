@@ -57,17 +57,8 @@
 
   <h1>還元種計算機</h1>
 
+  <!-- 結果だけ入れる -->
   <div id="result-area">
-  <input 
-    type="number" 
-    id="inputNumber" 
-    placeholder="点数"
-    inputmode="numeric"
-    pattern="[0-9]*"
-    step="1"
-  >
-  <button onclick="calculate()">計算する！</button>
-
     <table id="resultTable" style="display:none;">
       <tr>
         <th>300</th>
@@ -81,7 +72,19 @@
       </tr>
     </table>
   </div>
+  
+ <!-- 入力とボタン（別に書く） -->
+  <input 
+    type="number" 
+    id="inputNumber" 
+    placeholder="点数"
+    inputmode="numeric"
+    pattern="[0-9]*"
+    step="1"
+  >
+  <button onclick="calculate()">計算する！</button>
 
+  
   <script>
     function calculate() {
       const input = document.getElementById("inputNumber").value;
