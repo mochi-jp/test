@@ -4,65 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>還元種計算機</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
-
-    input[type="number"] {
-      width: 200px;
-      font-size: 20px;
-      padding: 10px;
-      margin: 15px 0;
-      border-radius: 8px;
-      text-align: right;
-      border: 1px solid #ccc;
-    }
-
-    button {
-      font-size: 20px;
-      padding: 10px 25px;
-      border: none;
-      background-color: #ffcc66;
-      border-radius: 12px;
-      cursor: pointer;
-      transition: transform 0.2s ease;
-    }
-
-    button:hover {
-      transform: scale(1.05);
-    }
-
-    #result-area {
-      margin-top: 5px;
-    }
-
-    table {
-      border-collapse: collapse;
-      background-color: rgba(255, 255, 255, 0.9);
-    }
-
-    th, td {
-      border: 1px solid #ccc;
-      padding: 10px 20px;
-      text-align: right;
-      min-width: 70px;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div id="header">
     <h1>還元種計算機</h1>
-    <p>入力窓タップでClearします。</p><p>キーボードの確定でも計算します。</p>計算後はtapしやすく下がる…ハズ！<p>
-    
-    </p>
+    <p>入力窓タップでClearします。</p>
+    <p>計算する or キーボードの確定で計算します。</p>
   </div>
 
   <div id="main">
@@ -89,65 +37,40 @@
       pattern="[0-9]*"
       step="1"
     />
-    
-    <div>
-      <button onclick="calculate()">計算する！</button>
-    </div>
-  </div>
-</body>
 
-  
+    <button onclick="calculate()">計算する！</button>
+  </div>
+
   <script>
     const input = document.getElementById("inputNumber");
 
-    // 入力欄：Enterキーで計算
-    input.addEventListener("keydown", function(e) {
-      if (e.key === "Enter") {
-        calculate();
-      }
-    });
-
-    // 入力欄：確定（change）でも計算
-    input.addEventListener("change", function () {
-      calculate();
-    });
-
-    // 入力欄：タップしたらクリア
-    input.addEventListener("focus", function() {
-      this.value = "";
-    });
-
     function calculate() {
       const num = parseFloat(input.value);
-
       if (!isNaN(num)) {
         document.getElementById("result300").textContent = Math.floor(num / 300);
         document.getElementById("result310").textContent = Math.floor(num / 310);
         document.getElementById("result320").textContent = Math.floor(num / 320);
         document.getElementById("resultTable").style.display = "table";
 
-        // キーボードを閉じる
-input.blur();
-
-// 入力欄の位置を取得
-const rect = input.getBoundingClientRect();
-const scrollTop = window.scrollY + rect.top;
-
-// 少し遅らせてその位置へスクロール（1回目）
-setTimeout(() => {
-  window.scrollTo({ top: scrollTop, behavior: "smooth" });
-}, 300);
-
-// 念押しで2回目スクロール
-setTimeout(() => {
-  window.scrollTo({ top: scrollTop, behavior: "smooth" });
-}, 800);
-
+        input.blur();
+        setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 300);
+        setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 800);
       } else {
         alert("ちゃんと数字を入れてね！");
       }
     }
-  </script>
 
+    input.addEventListener("keydown", function(e) {
+      if (e.key === "Enter") calculate();
+    });
+
+    input.addEventListener("change", function () {
+      calculate();
+    });
+
+    input.addEventListener("focus", function () {
+      this.value = "";
+    });
+  </script>
 </body>
 </html>
