@@ -4,14 +4,20 @@ body {
   padding: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  align-items: center; /* 横方向だけ中央揃え */
+  background-color: #fdfaf3;
 }
 
-h1 {
-  margin-top: 10px;//タイトル位置調整
-  margin-bottom: 50px;
+#header {
+  text-align: center;
+  margin-top: 30px;
+}
+
+#main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
 }
 
 input[type="number"] {
@@ -31,23 +37,16 @@ button {
   background-color: #ffcc66;
   border-radius: 12px;
   cursor: pointer;
-  width : 80%;
-  transition: transform 0.2s ease; /* ←ここに追加でもOK */
-}
-
-button:hover {
-    transform: scale(1.05);
 }
 
 #result-area {
-  margin-bottom: 80px;/* 結果？位置pxで調整OK */
-  display: flex;
-  justify-content: center;
+  margin-top: 10px;
 }
 
 table {
   border-collapse: collapse;
   background-color: rgba(255, 255, 255, 0.9);
+  margin-top: 10px;
 }
 
 th, td {
@@ -56,28 +55,3 @@ th, td {
   text-align: right;
   min-width: 70px;
 }
-
-#input-area {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-#header {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-#main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-#main input,
-#main button {
-  margin: 10px 0;
-}
-
-
-
