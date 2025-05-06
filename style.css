@@ -32,6 +32,11 @@ button {
   border-radius: 12px;
   cursor: pointer;
   width : 80%;
+  transition: transform 0.2s ease; /* ←ここに追加でもOK */
+}
+
+button:hover {
+    transform: scale(1.05);
 }
 
 #result-area {
