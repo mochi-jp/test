@@ -58,40 +58,41 @@
   </style>
 </head>
 <body>
-　
-<div id="header">
-  <h1>還元種計算機</h1>
-  <p>入力窓タップでClearします。</p><p>キーボードの確定でも計算します。</p><p>片手タップしやすく下がる…ハズ！</p>
-
- </div>
-  
- <div id="main">
-   <div id="result-area">
-    <table id="resultTable" style="display:none;">
-      <tr>
-        <th>300</th>
-        <th>310</th>
-        <th>320</th>
-      </tr>
-      <tr>
-        <td id="result300"></td>
-        <td id="result310"></td>
-        <td id="result320"></td>
-      </tr>
-    </table>
+  <div id="header">
+    <h1>還元種計算機</h1>
+    <p>入力窓タップでClearします。</p>
+    <p>計算する or キーボードの確定で計算します。</p>
   </div>
 
-  <input 
-    type="number" 
-    id="inputNumber" 
-    placeholder="点数"
-    inputmode="numeric"
-    pattern="[0-9]*"
-    step="1"
-  >
- <div>
-  <button onclick="calculate()">計算する！</button>
- </div>
+  <div id="main">
+    <div id="result-area">
+      <table id="resultTable" style="display:none;">
+        <tr>
+          <th>300</th>
+          <th>310</th>
+          <th>320</th>
+        </tr>
+        <tr>
+          <td id="result300"></td>
+          <td id="result310"></td>
+          <td id="result320"></td>
+        </tr>
+      </table>
+    </div>
+
+    <input
+      type="number"
+      id="inputNumber"
+      placeholder="点数"
+      inputmode="numeric"
+      pattern="[0-9]*"
+      step="1"
+    />
+    
+    <button onclick="calculate()">計算する！</button>
+  </div>
+</body>
+
   
   <script>
     const input = document.getElementById("inputNumber");
