@@ -14,8 +14,9 @@
     <p>入力窓タップでClearします。</p><p>キーボードの確定でも計算します。</p><p>計算後はtapしやすく下がる…ハズ！</p>
     </header>
 
-    <main class="section main">
+    <main class="main">
       <div id="result-area">
+      <!-- 結果のテーブル -->
         <table id="resultTable" style="display:none;">
           <tr><th>300</th><th>310</th><th>320</th></tr>
           <tr>
@@ -25,9 +26,11 @@
           </tr>
         </table>
       </div>
+
+    <div id="input-area">  
    <!-- 入力欄は通常フローで -->
       <input type="number" id="inputNumber" placeholder="点数" inputmode="numeric" />
-      
+    </div>
    <!-- ボタンは画面下に固定 -->
       <div id="button-area">
       <button onclick="calculate()">計算する！</button>
