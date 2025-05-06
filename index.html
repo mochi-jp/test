@@ -88,11 +88,11 @@
     const input = document.getElementById("inputNumber");
 
   // 対処法1: 入力欄タップ時に画面を戻す
-  input.addEventListener("focus", () => {
-    setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }, 300);
-  });
+  // input.addEventListener("focus", () => {
+  //  setTimeout(() => {
+  //  window.scrollTo({ top: 0, behavior: "smooth" });
+  // }, 300);
+  //});
     
     function calculate() {
       const input = document.getElementById("inputNumber").value;
@@ -103,6 +103,13 @@
         document.getElementById("result310").textContent = Math.floor(num / 310);
         document.getElementById("result320").textContent = Math.floor(num / 320);
         document.getElementById("resultTable").style.display = "table";
+ 
+        input.blur(); // ← キーボード閉じる（最優先！）
+
+         // 少し遅らせてからスクロール（滑らかに）
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, 300);
       } else {
         alert("ちゃんと数字を入れてね！");
       }
