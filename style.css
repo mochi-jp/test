@@ -50,7 +50,7 @@ button {
   padding: 10px 80px;
   border: none;
   background-color: #ffcc66;
-  border-radius: 12px;
+  border-radius: 10px;
   cursor: pointer;
 }
 
@@ -66,3 +66,27 @@ th, td {
   text-align: right;
   min-width: 70px;
 }
+
+#button-area {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 1000;
+  pointer-events: auto;
+  padding-bottom: env(safe-area-inset-bottom); /* iPhone対策 */
+}
+
+#button-area button {
+  width: 200px;
+  font-size: 18px;
+  padding: 10px;
+  border-radius: 12px;
+  background-color: #ffcc66;
+  border: none;
+  cursor: pointer;
+}
+
