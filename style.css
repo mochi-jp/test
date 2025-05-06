@@ -29,6 +29,8 @@ html, body {
   flex: 1 0 58%;
   flex-direction: column;
   justify-content: space-between; /* ← 上下に分ける！　flexとセット */
+  justify-content: center;   /* 縦方向の中央寄せ */
+  align-items: center;       /* 横方向の中央寄せ */
 } 
 
 #result-area {
@@ -42,7 +44,7 @@ html, body {
   flex-direction: column;
   align-items: center; /* 入力とボタンを中央に揃える */
   gap: 10px; /* 入力とボタンの間にスペース */
-  margin-bottom: 95px; /*  この高さ分、ボタンに隠れないようにする  */
+  margin-bottom: 110px; /*  この高さ分、ボタンに隠れないようにする  */
 }
 
 .footer {
