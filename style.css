@@ -25,9 +25,19 @@ html, body {
 }
 
 .main {
+  display: flex;/*セット*/
   flex: 1 0 58%;
   flex-direction: column;
-}
+  justify-content: flex-start; /* ←これで上寄せ！display: flexとセット*/
+} 
+
+  /* 
+#result-area {
+  margin-top: 0;
+  padding-top: 10px; 
+  テーブルだけ個別に位置調整 mainの代わり
+} 
+*/
 
 .footer {
   flex: 0 0 22%;
