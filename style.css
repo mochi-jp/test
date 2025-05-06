@@ -29,8 +29,8 @@ html, body {
   flex: 1 0 58%;
   flex-direction: column;
   justify-content: space-between; /* ← 上下に分ける！　flexとセット */
-  justify-content: center;   /* 縦方向の中央寄せ */
-  align-items: center;       /* 横方向の中央寄せ */
+ /* justify-content: center;    縦方向の中央寄せ */
+ /*align-items: center;         横方向の中央寄せ */
 } 
 
 #result-area {
@@ -108,3 +108,7 @@ th, td {
   cursor: pointer;
 }
 
+#resultTable {
+  margin-left: auto;
+  margin-right: auto;
+}
