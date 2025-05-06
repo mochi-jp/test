@@ -47,12 +47,11 @@ html, body {
 
 button {
   font-size: 20px;
-  padding: 10px 25px;
+  padding: 10px 80px;
   border: none;
   background-color: #ffcc66;
   border-radius: 12px;
   cursor: pointer;
-  width: 80%;
 }
 
 table {
