@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
   <title>還元種計算機</title>
   <style>
     body {
@@ -34,6 +33,11 @@
       background-color: #ffcc66;
       border-radius: 12px;
       cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
     }
 
     #result-area {
@@ -57,7 +61,6 @@
 
   <h1>還元種計算機</h1>
 
-  <!-- 結果だけ入れる -->
   <div id="result-area">
     <table id="resultTable" style="display:none;">
       <tr>
@@ -72,8 +75,7 @@
       </tr>
     </table>
   </div>
-  
- <!-- 入力とボタン（別に書く） -->
+
   <input 
     type="number" 
     id="inputNumber" 
@@ -87,16 +89,25 @@
   <script>
     const input = document.getElementById("inputNumber");
 
-  // 対処法1: 入力欄タップ時に画面を戻す
-  // input.addEventListener("focus", () => {
-  //  setTimeout(() => {
-  //  window.scrollTo({ top: 0, behavior: "smooth" });
-  // }, 300);
-  //});
-    
+    // 入力欄：Enterキーで計算
+    input.addEventListener("keydown", function(e) {
+      if (e.key === "Enter") {
+        calculate();
+      }
+    });
+
+    // 入力欄：確定（change）でも計算
+    input.addEventListener("change", function () {
+      calculate();
+    });
+
+    // 入力欄：タップしたらクリア
+    input.addEventListener("focus", function() {
+      this.value = "";
+    });
+
     function calculate() {
-      const input = document.getElementById("inputNumber").value;
-      const num = parseFloat(input);
+      const num = parseFloat(input.value);
 
       if (!isNaN(num)) {
         document.getElementById("result300").textContent = Math.floor(num / 300);
@@ -104,50 +115,22 @@
         document.getElementById("result320").textContent = Math.floor(num / 320);
         document.getElementById("resultTable").style.display = "table";
 
-         const input = document.getElementById("inputNumber");
+        // キーボードを閉じる
+        input.blur();
 
-  // 入力欄：Enterキーで計算
-  input.addEventListener("keydown", function(e) {
-    if (e.key === "Enter") {
-      calculate();
+        // スクロールで戻す（2段階）
+        setTimeout(() => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }, 300);
+
+        setTimeout(() => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }, 800);
+      } else {
+        alert("ちゃんと数字を入れてね！");
+      }
     }
-  });
+  </script>
 
-  // 入力欄：確定（change）でも計算
-  input.addEventListener("change", function () {
-    calculate();
-  });
-
-  // 入力欄：タップしたらクリア
-  input.addEventListener("focus", function() {
-    this.value = "";
-  });
-
-  function calculate() {
-    const num = parseFloat(input.value);
-
-    if (!isNaN(num)) {
-      document.getElementById("result300").textContent = Math.floor(num / 300);
-      document.getElementById("result310").textContent = Math.floor(num / 310);
-      document.getElementById("result320").textContent = Math.floor(num / 320);
-      document.getElementById("resultTable").style.display = "table";
-
-      // キーボードを閉じる
-      input.blur();
-
-      // 少し遅らせてからスクロール（1回目）
-      setTimeout(() => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }, 300);
-
-      // 念押しで2回目スクロール
-      setTimeout(() => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }, 800);
-    } else {
-      alert("ちゃんと数字を入れてね！");
-    }
-  }
-</script>
-        
-       
+</body>
+</html>
