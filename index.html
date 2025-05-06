@@ -116,16 +116,22 @@
         document.getElementById("resultTable").style.display = "table";
 
         // キーボードを閉じる
-        input.blur();
+input.blur();
 
-        // スクロールで戻す（2段階）
-        setTimeout(() => {
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        }, 300);
+// 入力欄の位置を取得
+const rect = input.getBoundingClientRect();
+const scrollTop = window.scrollY + rect.top;
 
-        setTimeout(() => {
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        }, 800);
+// 少し遅らせてその位置へスクロール（1回目）
+setTimeout(() => {
+  window.scrollTo({ top: scrollTop, behavior: "smooth" });
+}, 300);
+
+// 念押しで2回目スクロール
+setTimeout(() => {
+  window.scrollTo({ top: scrollTop, behavior: "smooth" });
+}, 800);
+
       } else {
         alert("ちゃんと数字を入れてね！");
       }
