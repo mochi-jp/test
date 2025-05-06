@@ -1,0 +1,49 @@
+<input 
+    type="number" 
+    id="inputNumber" 
+    placeholder="点数"
+    inputmode="numeric"
+    pattern="[0-9]*"
+    step="1"
+  >
+  <button onclick="calculate()">計算する！</button>
+
+  <div id="result-area" style="margin-top: 20px;">
+    <table id="resultTable" style="display:none;">
+      <tr>
+        <th>÷300</th>
+        <th>÷310</th>
+        <th>÷320</th>
+      </tr>
+      <tr>
+        <td id="result300"></td>
+        <td id="result310"></td>
+        <td id="result320"></td>
+      </tr>
+    </table>
+  </div>
+
+  <script>
+    function calculate() {
+      const input = document.getElementById("inputNumber").value;
+      const num = parseFloat(input);
+
+      if (!isNaN(num)) {
+        document.getElementById("result300").textContent = Math.floor(num / 300);
+        document.getElementById("result310").textContent = Math.floor(num / 310);
+        document.getElementById("result320").textContent = Math.floor(num / 320);
+        document.getElementById("resultTable").style.display = "table";
+      } else {
+        alert("ちゃんと数字を入れてね！");
+      }
+    }
+
+  //Enterキーで計算できるように
+    document.getElementById("inputNumber").addEventListener("keydown", function(e) {
+  if (e.key === "Enter") {
+    calculate();
+  } 
+});
+  </script>
+</body>
+</html>
