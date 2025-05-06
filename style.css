@@ -34,7 +34,9 @@ button {
 }
 
 #result-area {
-  margin-top: 40px;
+  margin-bottom: 20px;/* 数字を変えるだけで調整OK */
+  display: flex;
+  justify-content: center;
 }
 
 table {
