@@ -84,8 +84,16 @@
   >
   <button onclick="calculate()">計算する！</button>
 
-  
   <script>
+    const input = document.getElementById("inputNumber");
+
+  // 対処法1: 入力欄タップ時に画面を戻す
+  input.addEventListener("focus", () => {
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, 300);
+  });
+    
     function calculate() {
       const input = document.getElementById("inputNumber").value;
       const num = parseFloat(input);
