@@ -1,44 +1,39 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>還元種計算機</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div id="header">
-    <h1>還元種計算機</h1>
-    <p>入力窓タップでClearします。</p>
-    <p>計算する or キーボードの確定で計算します。</p>
-  </div>
+  <div class="container">
 
-  <div id="main">
-    <div id="result-area">
-      <table id="resultTable" style="display:none;">
-        <tr>
-          <th>300</th>
-          <th>310</th>
-          <th>320</th>
-        </tr>
-        <tr>
-          <td id="result300"></td>
-          <td id="result310"></td>
-          <td id="result320"></td>
-        </tr>
-      </table>
-    </div>
+    <header class="section header">
+       <h1>還元種計算機</h1>
+    <p>入力窓タップでClearします。</p><p>キーボードの確定でも計算します。</p><p>計算後はtapしやすく下がる…ハズ！</p>
+    </header>
 
-    <input
-      type="number"
-      id="inputNumber"
-      placeholder="点数"
-      inputmode="numeric"
-      pattern="[0-9]*"
-      step="1"
-    />
+    <main class="section main">
+      <div id="result-area">
+        <table id="resultTable" style="display:none;">
+          <tr><th>300</th><th>310</th><th>320</th></tr>
+          <tr>
+            <td id="result300"></td>
+            <td id="result310"></td>
+            <td id="result320"></td>
+          </tr>
+        </table>
+      </div>
 
-    <button onclick="calculate()">計算する！</button>
+      <input type="number" id="inputNumber" placeholder="点数" inputmode="numeric" />
+      <button onclick="calculate()">計算する！</button>
+    </main>
+
+    <footer class="section footer">
+      <p>© 2025 Mochitan</p>
+    </footer>
+
   </div>
 
   <script>
@@ -51,26 +46,18 @@
         document.getElementById("result310").textContent = Math.floor(num / 310);
         document.getElementById("result320").textContent = Math.floor(num / 320);
         document.getElementById("resultTable").style.display = "table";
-
         input.blur();
         setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 300);
-        setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 800);
       } else {
         alert("ちゃんと数字を入れてね！");
       }
     }
 
-    input.addEventListener("keydown", function(e) {
+    input.addEventListener("keydown", e => {
       if (e.key === "Enter") calculate();
     });
-
-    input.addEventListener("change", function () {
-      calculate();
-    });
-
-    input.addEventListener("focus", function () {
-      this.value = "";
-    });
+    input.addEventListener("change", calculate);
+    input.addEventListener("focus", () => input.value = "");
   </script>
 </body>
 </html>
