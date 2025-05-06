@@ -58,10 +58,15 @@
   </style>
 </head>
 <body>
-
+　
+<div id="header">
   <h1>還元種計算機</h1>
-
-  <div id="result-area">
+  <p>入力窓タップでClearします。</p>
+　<p>計算するorキーボードの確定で計算します。</p>
+ </div>
+  
+ <div id="main">
+   <div id="result-area">
     <table id="resultTable" style="display:none;">
       <tr>
         <th>300</th>
@@ -84,8 +89,11 @@
     pattern="[0-9]*"
     step="1"
   >
+
   <button onclick="calculate()">計算する！</button>
 
+  </div>
+  
   <script>
     const input = document.getElementById("inputNumber");
 
