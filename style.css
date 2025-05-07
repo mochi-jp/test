@@ -109,6 +109,8 @@ th, td {
 }
 
 #resultTable {
+  margin-top: 0;
+  padding-top: 10px; /* 必要に応じて */
   margin-left: auto;
   margin-right: auto;
 }
