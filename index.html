@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>還元種計算機</title>
+  <title>ハコニワ還元種計算機</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
 
     <header class="section header">
-       <h1>還元種計算機</h1>
+       <h1>ハコニワ還元種計算機</h1>
     <p>入力窓タップでClearします。</p><p>キーボードの確定でも計算します。</p><p>計算後はtapしやすく下がる…ハズ！</p>
     </header>
 
@@ -29,7 +29,7 @@
 
     <div id="input-area">  
    <!-- 入力欄は通常フローで -->
-      <input type="number" id="inputNumber" placeholder="点数" inputmode="numeric" />
+      <input type="number" id="inputNumber" placeholder="点数を入力してね" inputmode="numeric" />
     </div>
    <!-- ボタンは画面下に固定 -->
       <div id="button-area">
@@ -38,7 +38,7 @@
     </main>
 
     <footer class="section footer">
-      <p>© 2025 Mochitan</p>
+      <p>© 2025 Mochi</p>
     </footer>
 
   </div>
@@ -56,7 +56,7 @@
         input.blur();
         setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 300);
       } else {
-        alert("ちゃんと数字を入れてね！");
+        alert("数字を入れてね");
       }
     }
 
