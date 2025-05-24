@@ -1,70 +1,124 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ハコニワ還元種計算機</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>ラベルと入力欄の関係テスト</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      line-height: 1.6;
+      padding: 20px;
+    }
+    label {
+      display: inline-block;
+      width: 100px;
+    }
+    input, select {
+      margin-bottom: 10px;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
 
-    <header class="section header">
-       <h1>ハコニワ還元種計算機</h1>
-    <p>入力窓タップでClearします。</p><p>キーボードの確定でも計算します。</p><p>計算後はtapしやすく下がる…ハズ！</p>
-    </header>
+  <h2>👀 ラベルと入力欄のテスト</h2>
 
-    <main class="main">
-      <div id="result-area">
-      <!-- 結果のテーブル -->
-        <table id="resultTable" style="display:none;">
-          <tr><th>300</th><th>310</th><th>320</th></tr>
-          <tr>
-            <td id="result300"></td>
-            <td id="result310"></td>
-            <td id="result320"></td>
-          </tr>
-        </table>
-      </div>
+  <form>
+    <p>
+      <label for="name1">名前</label>
+      <input type="text" id="name1" name="namae">
+    </p>
 
-    <div id="input-area">  
-   <!-- 入力欄は通常フローで -->
-      <input type="number" id="inputNumber" placeholder="点数を入力" inputmode="numeric" />
-    </div>
-   <!-- ボタンは画面下に固定 -->
-      <div id="button-area">
-      <button onclick="calculate()">計算する！</button>
-    </div>
-    </main>
+    <p>
+      <label for="email">メール</label>
+      <input type="email" id="email" name="email">
+    </p>
 
-    <footer class="section footer">
-      <p>© 2025 Mochitan</p>
-    </footer>
+    <p>
+      <label for="age">年齢</label>
+      <input type="number" id="age" name="age">
+    </p>
 
-  </div>
+    <p>
+      <label for="gender">性別</label>
+      <select id="gender" name="gender">
+        <option value="">選択してください</option>
+        <option value="male">男性</option>
+        <option value="female">女性</option>
+        <option value="other">その他</option>
+      </select>
+    </p>
 
-  <script>
-    const input = document.getElementById("inputNumber");
+    <p>
+      <label for="message">メッセージ</label><br>
+      <textarea id="message" name="message" rows="4" cols="30"></textarea>
+    </p>
 
-    function calculate() {
-      const num = parseFloat(input.value);
-      if (!isNaN(num)) {
-        document.getElementById("result300").textContent = Math.floor(num / 300);
-        document.getElementById("result310").textContent = Math.floor(num / 310);
-        document.getElementById("result320").textContent = Math.floor(num / 320);
-        document.getElementById("resultTable").style.display = "table";
-        input.blur();
-        setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 300);
-      } else {
-        alert("数字を入れてね");
-      }
+    <p>
+      <button type="submit">送信</button>
+    </p>
+  </form>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ラベルと入力欄の関係テスト</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      line-height: 1.6;
+      padding: 20px;
     }
+    label {
+      display: inline-block;
+      width: 100px;
+    }
+    input, select {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
 
-    input.addEventListener("keydown", e => {
-      if (e.key === "Enter") calculate();
-    });
-    input.addEventListener("change", calculate);
-    input.addEventListener("focus", () => input.value = "");
-  </script>
+  <h2>👀 ラベルと入力欄のテスト</h2>
+
+  <form>
+    <p>
+      <label for="name1">名前</label>
+      <input type="text" id="name1" name="namae">
+    </p>
+
+    <p>
+      <label for="email">メール</label>
+      <input type="email" id="email" name="email">
+    </p>
+
+    <p>
+      <label for="age">年齢</label>
+      <input type="number" id="age" name="age">
+    </p>
+
+    <p>
+      <label for="gender">性別</label>
+      <select id="gender" name="gender">
+        <option value="">選択してください</option>
+        <option value="male">男性</option>
+        <option value="female">女性</option>
+        <option value="other">その他</option>
+      </select>
+    </p>
+
+    <p>
+      <label for="message">メッセージ</label><br>
+      <textarea id="message" name="message" rows="4" cols="30"></textarea>
+    </p>
+
+    <p>
+      <button type="submit">送信</button>
+    </p>
+  </form>
+
 </body>
 </html>
