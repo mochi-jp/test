@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>妹ちゃんの分岐計算機★</title>
+<body>
+ <div aligin="center"> 
+  <table width="380px">
+  <tr>
+  <td hight="20px" font color="#dcdcdc" aligin="botton"> 
+  赤枠は変更がなければ上から入力する必要はありません。
+  </td>
+  <tr>
+  <td colspan="3" hight="20px" font color="#dcdcdc" aligin="botton">
+  表示されてる金額で分割、税率で計算されます。
+  </td>
+  </tr>
+  <tr>
+  <td wicth="160px" aligin=right>
+    <!-- 1行目 -->
+        <input type="text" id="amountA" inputmode="numeric" pattern="\d*" oninput="formatNumber(this); updateNextStart()" value="1,000,000" placeholder="1,000,000" class="red-border">
+  </td>
+  <td width="80">
+      <span>まで 税率</span>
+  </td>
+  <td width="80">
+      <input type="text" id="rateB" inputmode="decimal" value="10.21" placeholder="10.21" class="narrow-input">
+      <span>%</span>
+  </td>
+  </tr>
+  <tr>
+  <td aligin="right">
+    <!-- 2行目 -->
+      <span class="left-label" id="nextStart">1,000,001</span>
+  </td>
+  </tr>
+  <tr>
+  <td>   
+      <span>から 税率</span>
+  </td>
+  <td>
+      <input type="text" id="rateC" inputmode="decimal" value="20.42" placeholder="20.42" class="narrow-input">
+      <span>%</span>
+  </td>
+  </tr>
+  </table>  
+  </div>
+
+    <!-- 3行目 -->
+    <div class="line">
+      <span class="left-label">計算する金額</span>
+      <input type="text" id="amountD" inputmode="numeric" pattern="\d*" oninput="formatNumber(this)" placeholder="例: 1,550,000">
+    </div>
+    <div class="line">
+      <button onclick="calculate()">計算する！</button>
+    </div>
+    <div id="result"></div>
+  </div>
+
+ <script>
+    function updateNextStart() {
+      const amountA = document.getElementById("amountA").value.replace(/,/g, "");
+      const next = parseFloat(amountA) + 1;
+      if (!isNaN(next)) {
+        document.getElementById("nextStart").textContent = next.toLocaleString();
+      } else {
+        document.getElementById("nextStart").textContent = "";
+      }
+    }
+
+    function calculate() {
+      const a = parseFloat(document.getElementById("amountA").value.replace(/,/g, ""));
+      const b = parseFloat(document.getElementById("rateB").value);
+      const c = parseFloat(document.getElementById("rateC").value);
+      const d = parseFloat(document.getElementById("amountD").value.replace(/,/g, ""));
+
+      if (isNaN(a) || isNaN(b) || isNaN(c) || isNaN(d)) {
+        document.getElementById("result").textContent = "入力値をすべて正しく入力してください。";
+        return;
+      }
+
+      const base = Math.min(d, a);
+      const over = d > a ? d - a : 0;
+      const result = base * (b / 100) + over * (c / 100);
+      const rounded = Math.round(result);
+
+      document.getElementById("result").innerHTML =
+        `<div class="calc-expression">(${base.toLocaleString()} × ${b}%) ＋ (${over.toLocaleString()} × ${c}%)</div>` +
+        `<div class="calc-value">${rounded.toLocaleString()} 円</div>`;
+    }
+
+    function formatNumber(el) {
+      const selectionStart = el.selectionStart;
+      let raw = el.value.replace(/,/g, '');
+      if (/^\d+$/.test(raw)) {
+        el.value = Number(raw).toLocaleString();
+        el.setSelectionRange(el.value.length, el.value.length);
+      } else {
+        el.value = '';
+      }
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      const inputA = document.getElementById("amountA");
+      const inputB = document.getElementById("rateB");
+      const inputC = document.getElementById("rateC");
+      const inputD = document.getElementById("amountD");
+
+      inputA.addEventListener("keydown", e => {
+        if (e.key === "Enter") inputB.focus();
+      });
+      inputB.addEventListener("keydown", e => {
+        if (e.key === "Enter") inputC.focus();
+      });
+      inputC.addEventListener("keydown", e => {
+        if (e.key === "Enter") inputD.focus();
+      });
+      inputD.addEventListener("keydown", e => {
+        if (e.key === "Enter") calculate();
+      });
+    });
+  </script>
+</body>
+</html>
